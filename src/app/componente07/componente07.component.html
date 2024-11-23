@@ -1,0 +1,19 @@
+<h1 [ngStyle]="{ color: condicao ? 'red' : 'green' }">texto</h1>
+
+<ul>
+  <li
+    *ngFor="let l of lista"
+    [ngStyle]="{ color: l == 'aprovado' ? 'green' : 'red' }"
+  >
+    {{ l }}
+  </li>
+</ul>
+
+<ul>
+  <li
+    *ngFor="let l of lista"
+    [ngClass]="l == 'aprovado' ? 'fontverde' : 'fontvermelha'"
+  >
+    {{ l }}
+  </li>
+</ul>
