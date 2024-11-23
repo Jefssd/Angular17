@@ -45,6 +45,9 @@ export class Componente11Component {
     this.formulario.reset;
     //visualização via console
     // console.table(this.vetor);
+
+    //visibilidade dos botoes
+    this.btnCadastrar = true;
   }
 
   //função seleção
@@ -53,9 +56,41 @@ export class Componente11Component {
     this.indice = indice;
     //atribuir os dados da pessoa no fomulario
     this.formulario.setValue({
-      nome : this.vetor[indice].nome,
-      idade : this.vetor[indice].idade,
-      cidade : this.vetor[indice].cidade
-    })
+      nome: this.vetor[indice].nome,
+      idade: this.vetor[indice].idade,
+      cidade: this.vetor[indice].cidade,
+    });
+
+    //visiilidade dos botoes
+    this.btnCadastrar = false;
+  }
+  //funcao alteraçao
+  alterar() {
+    this.vetor[this.indice] = this.formulario.value as Pessoa;
+    //limpar os imputs
+    this.formulario.reset();
+
+    //visbilidade dos otoes
+    this.btnCadastrar = true;
+  }
+
+  //fnçao remover
+  remover() {
+    this.vetor.splice(this.indice, 1);
+
+    //limpar os imputs
+    this.formulario.reset();
+
+    //visbilidade dos otoes
+    this.btnCadastrar = true;
+  }
+
+  //funçao cancelar
+  cancelar() {
+    //limpar os imputs
+    this.formulario.reset();
+
+    //visbilidade dos otoes
+    this.btnCadastrar = true;
   }
 }
